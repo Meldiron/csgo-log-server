@@ -9,8 +9,7 @@ export default async ({ req, res, log, error }) => {
      .setKey(process.env.APPWRITE_API_KEY);
 
   const databases = new Databases(client);
-
-  await databases.createDocument('main, 'logs', 'unique()', {
+  await databases.createDocument('main', 'logs', 'unique()', {
     log: req.bodyRaw,
     logId: req.path
   });
